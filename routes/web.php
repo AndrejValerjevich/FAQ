@@ -21,6 +21,8 @@ Route::get('admin', 'AdminController@index');
 
 Route::get('ask', 'AskController@index');
 
+Route::get('users', 'UsersController@index');
+
 Route::post('home/AddQuestion', [
     'as' => 'AddQuestion', 'uses' => 'HomeController@AddQuestion'
 ]);
