@@ -80,7 +80,7 @@ header h1 {
     font-size: 4.25rem;
     font-weight: 600;
     color: #00b3ff;
-    letter-spacing: 0.7em;
+    text-shadow: 1px 1px 2px gray, 0 0 1em gray;
   }
 }
 
@@ -475,6 +475,23 @@ header h1 {
   opacity: 0.9;
 }
 
+.faq-admins {
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  margin: 0 3% 0 85%;
+  font-size: 1.5em;
+  font-weight: 500;
+  width: 250px;
+  border-radius: 2px;
+  transition: 1s;
+}
+
+.faq-admins:hover {
+  background-color: #00b3ff;
+  opacity: 0.9;
+}
+
 .faq-answer {
   border: none;
   background: none;
@@ -494,3 +511,62 @@ header h1 {
   color: white;
   opacity: 0.9;
 }
+
+.add-button__new {
+  color: #00b3ff;
+  text-align: center;
+  line-height: 50px;
+  margin: 0 0 0 66%;
+  font-size: 1.5em;
+  font-weight: 500;
+  width: 350px;
+  border-radius: 2px;
+  transition: 1s;
+}
+
+.add-button__new:hover {
+  background-color: #00b3ff;
+  color: white;
+  opacity: 0.9;
+}
+
+h1.less-size {
+  line-height: 130px;
+  text-align: center;
+  margin: auto;
+}
+h2.less-size {
+  color: #00b3ff;
+  font-weight: 600;
+  font-size: 1.6em;
+  line-height: 40px;
+  text-align: center;
+  margin: auto;
+  padding: 0;
+}
+
+.admin-button {
+  border: none;
+  background: none;
+  color: #00b3ff;
+  text-align: center;
+  line-height: 50px;
+  margin: auto;
+  font-size: 1.5em;
+  font-weight: 500;
+  width: 370px;
+  border-radius: 2px;
+  transition: 1s;
+}
+
+.admin-button:hover {
+  background-color: #00b3ff;
+  color: white;
+  opacity: 0.9;
+}
+
+.small-form {
+  margin: auto;
+  display: inline-block;
+}
+

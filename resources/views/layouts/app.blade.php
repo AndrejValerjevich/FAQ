@@ -28,8 +28,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
+                            <li><a href="home">О нас</a></li>
                             <li><a href="{{ route('login') }}">Вход</a></li>
-                            <li><a href="{{ route('register') }}">Регистрация</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -56,11 +56,13 @@
         </nav>
 
         <header>
-            <h1>F A Q</h1>
             @if (Auth::guest())
-                <a href="ask" class="faq-auth__link"><h3 class="faq-auth">Спросить</h3></a>
+                <h1>F &nbsp;&nbsp;&nbsp;&nbsp; A &nbsp;&nbsp;&nbsp;&nbsp; Q</h1>
+                <a href="ask"><h3 class="faq-auth">Спросить</h3></a>
             @else
-                <a href="answer"><h3 class="faq-auth">Администраторы</h3></a>
+                <h1 class="less-size">F &nbsp;&nbsp;&nbsp;&nbsp; A &nbsp;&nbsp;&nbsp;&nbsp; Q</h1>
+                <h2 class="less-size">a d m i n i s t r a t e</h2>
+                <a href="users"><h3 class="faq-admins">Администраторы</h3></a>
             @endif
         </header>
         @yield('content')

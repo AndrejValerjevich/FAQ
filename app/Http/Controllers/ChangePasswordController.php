@@ -7,9 +7,16 @@
  */
 
 namespace FAQ\Http\Controllers;
+use Illuminate\HTTP\Request;
+use Illuminate\Support\Facades\DB;
 
 
-class ChangePasswordController
+class ChangePasswordController extends Controller
 {
+    public function index(Request $request) {
 
+        $user = DB::select('select * from users where id = ?', [$request->get('hidden_id')]);
+
+        return view('changePassword', ['user' => $user]);
+    }
 }

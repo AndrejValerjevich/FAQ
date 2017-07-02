@@ -17,6 +17,7 @@
                         <li>
                             <a class="cd-faq-trigger" href="#0">{{ $question->text }}</a>
                             <div class="cd-faq-content">
+                                <hr/>
                                 <p>{{ $question->answer }}</p>
                             </div> <!— cd-faq-content —>
                         </li>

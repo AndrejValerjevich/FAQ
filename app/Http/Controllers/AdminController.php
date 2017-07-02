@@ -26,7 +26,7 @@ class AdminController extends Controller
     {
         $themes = DB::select('select * from themes ORDER BY name ASC');
 
-        $questions = DB::select('select * from questions ORDER BY text ASC');
+        $questions = DB::select('select * from questions ORDER BY date DESC');
 
         return view('admin', ['themes' => $themes], ['questions' => $questions]);
     }

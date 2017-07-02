@@ -23,6 +23,8 @@ Route::get('ask', 'AskController@index');
 
 Route::get('users', 'UsersController@index');
 
+Route::post('changePassword', 'ChangePasswordController@index');
+
 Route::post('home/AddQuestion', [
     'as' => 'AddQuestion', 'uses' => 'HomeController@AddQuestion'
 ]);
@@ -30,3 +32,12 @@ Route::post('home/AddQuestion', [
 Route::post('admin/Answer', [
     'as' => 'Answer', 'uses' => 'AdminController@Answer'
 ]);
+
+Route::post('users/Delete', [
+    'as' => 'Delete', 'uses' => 'UsersController@Delete'
+]);
+
+Route::post('users/ChangePassword', [
+    'as' => 'ChangePassword', 'uses' => 'UsersController@ChangePassword'
+]);
+

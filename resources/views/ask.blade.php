@@ -55,13 +55,14 @@
 
 
                             <div class="form-group">
-                                <div class="col-md-4 col-md-offset-4">
+                                <div class="col-md-6 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">
                                         Задать вопрос
                                     </button>
                                 </div>
                             </div>
                         </form>
+                        <a href="home"><h3 class="btn btn-primary">Назад</h3></a>
                     </div>
                 </div>
             </div>
