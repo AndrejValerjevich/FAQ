@@ -12,9 +12,9 @@
                             <div class="cd-faq-content">
                                 <p>{{ $user->email }}</p>
                                 <hr/>
-                                <form class="small-form" role="form" method="POST" action="changePassword">
+                                <form class="small-form" role="form" method="POST" action="{{ route('password.request') }}">
                                     {{ csrf_field() }}
-                                    <input type="hidden" name="hidden_id" value="{{$user->id}}">
+                                    <input type="hidden" name="hidden_id" value="{{$user->email}}">
                                     <input type="submit" value="Изменить пароль" class="admin-button">
                                 </form>
                                 <form class="small-form" role="form" method="POST" action="users/Delete">

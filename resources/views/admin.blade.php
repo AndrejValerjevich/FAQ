@@ -12,8 +12,6 @@
         <a href="register"><h3 class="add-button__new">Новая тема</h3></a>
 
         <div class="cd-faq-items">
-            <form role="form" method="POST" action="admin/Answer">
-                {{ csrf_field() }}
                 @foreach ($themes as $theme)
                     @php $all_count = 0; $non_answered_count = 0; @endphp
                     <ul id="{{ $theme->name }}" class="cd-faq-group">
@@ -29,14 +27,28 @@
                                             <p>Дата создания: {{$question->date}}</p>
                                             <p>Статус: {{$question->status}}</p>
                                             <hr/>
-                                            <div class="form-group">
-                                                <label for="answer" class="col-md-4 control-label">Напишите ответ на вопрос:</label>
-                                                <div class="col-md-6">
-                                                    <input id="question" type="text" class="form-control" name="answer">
+                                            <form role="form" method="POST" action="admin/Answer">
+                                                {{ csrf_field() }}
+                                                <div class="form-group">
+                                                    <label for="answer" class="col-md-4 control-label">Напишите ответ на вопрос:</label>
+                                                    <div class="col-md-6">
+                                                        <input id="question" type="text" class="form-control" name="answer">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <input type="hidden" name="hidden_id" value="{{$question->id}}">
-                                            <input type="submit" value="Ответить" class="faq-answer">
+                                                <input type="hidden" name="hidden_id" value="{{$question->id}}">
+                                                <input type="submit" value="Ответить" class="faq-answer">
+                                            </form>
+                                            <hr/>
+                                            <form class="small-form" role="form" method="GET" action="reset">
+                                                {{ csrf_field() }}
+                                                <input type="hidden" name="hidden_id" value="{{$question->id}}">
+                                                <input type="submit" value="Изменить " class="admin-button">
+                                            </form>
+                                            <form class="small-form" role="form" method="POST" action="users/Delete">
+                                                {{ csrf_field() }}
+                                                <input type="hidden" name="hidden_id" value="{{$question->id}}">
+                                                <input type="submit" value="Удалить" class="admin-button">
+                                            </form>
                                         </div> <!— cd-faq-content —>
                                     </li>
                                 @else

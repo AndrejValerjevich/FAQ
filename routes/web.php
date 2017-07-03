@@ -40,4 +40,3 @@ Route::post('users/Delete', [
 Route::post('users/ChangePassword', [
     'as' => 'ChangePassword', 'uses' => 'UsersController@ChangePassword'
 ]);
-

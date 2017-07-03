@@ -498,10 +498,10 @@ header h1 {
   color: #00b3ff;
   text-align: center;
   line-height: 50px;
-  margin: 5% 45% 0 45%;
+  margin: 3% 0 0 37%;
   font-size: 1.5em;
   font-weight: 500;
-  width: 150px;
+  width: 200px;
   border-radius: 2px;
   transition: 1s;
 }
