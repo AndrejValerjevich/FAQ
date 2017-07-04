@@ -63,7 +63,7 @@
                                             <p>Дата создания: {{$question->date}}</p>
                                             <p>Статус: {{$status}}</p>
                                             <hr/>
-                                            <form role="form" method="POST" action="admin/Answer">
+                                            <form role="form" method="POST" action="ShowEditForm">
                                                 {{ csrf_field() }}
                                                 <input type="hidden" name="hidden_id" value="{{$question->id}}">
                                                 <p>{{ $question->answer }}</p>

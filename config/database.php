@@ -42,7 +42,7 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'host' => 'localhost',
-            'database' => 'faq',
+            'database' => env('DB_DATABASE', 'faq'),
             'username' => 'root',
             'password' => '',
             'unix_socket' => env('DB_SOCKET', ''),

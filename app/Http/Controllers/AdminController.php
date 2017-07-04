@@ -7,7 +7,9 @@
  */
 
 namespace FAQ\Http\Controllers;
-use Illuminate\Support\Facades\DB;
+
+use FAQ\Theme;
+use FAQ\Question;
 use Illuminate\HTTP\Request;
 
 class AdminController extends Controller
@@ -24,16 +26,19 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $themes = DB::select('select * from themes ORDER BY name ASC');
-
-        $questions = DB::select('select * from questions ORDER BY date DESC');
+        $themes = Theme::all()->sortBy("name");
+        $questions = Question::all()->sortBy("status");
 
         return view('admin', ['themes' => $themes], ['questions' => $questions]);
     }
 
     public function Answer(Request $request) {
 
-        DB::update('update questions set answer = ?, status = 1 where id = ?', [$request->get('answer'), $request->get('hidden_id')]);
+        $question = Question::find($request->get('hidden_id'));
+
+        $question->answer = $request->get('answer');
+
+        $question->save();
 
         return redirect('admin');
 

@@ -9,9 +9,11 @@
 namespace FAQ\Http\Controllers;
 
 
+use GuzzleHttp\Psr7\Request;
+
 class EditController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         return view('edit');
     }

@@ -7,6 +7,8 @@
  */
 
 namespace FAQ\Http\Controllers;
+
+use FAQ\User;
 use Illuminate\HTTP\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,7 +17,7 @@ class UsersController extends Controller
     public function index()
     {
 
-        $users = DB::select('select * from users ORDER BY name ASC');
+        $users = User::all()->sortBy("name");
 
         return view('users', ['users' => $users]);
     }
