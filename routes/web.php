@@ -27,13 +27,17 @@ Route::post('ShowEditForm', [
     'as' => 'ShowEditForm', 'uses' => 'EditController@index'
 ]);
 
+Route::post('HideQuestion', [
+    'as' => 'HideQuestion', 'uses' => 'AdminController@HideQuestion'
+]);
+
 Route::post('changePassword', 'ChangePasswordController@index');
 
 Route::post('home/AddQuestion', [
     'as' => 'AddQuestion', 'uses' => 'HomeController@AddQuestion'
 ]);
 
-Route::post('admin/Answer', [
+Route::post('Answer', [
     'as' => 'Answer', 'uses' => 'AdminController@Answer'
 ]);
 

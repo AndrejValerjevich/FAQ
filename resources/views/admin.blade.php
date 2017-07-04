@@ -24,10 +24,10 @@
                                     <li>
                                         <a class="cd-faq-trigger" href="#0"><img src="/diplom/diplom/img/non-aswered.png" width="18" height="18">   {{ $question->text }}</a>
                                         <div class="cd-faq-content">
-                                            <p>Дата создания: {{$question->date}}</p>
-                                            <p>Статус: {{$status}}</p>
+                                            <p> Дата создания: {{$question->date}}</p>
+                                            <p> Статус: {{$status}}</p>
                                             <hr/>
-                                            <form role="form" method="POST" action="admin/Answer">
+                                            <form role="form" method="POST" action="Answer">
                                                 {{ csrf_field() }}
                                                 <div class="form-group">
                                                     <label for="answer" class="col-md-4 control-label">Напишите ответ на вопрос:</label>
@@ -53,15 +53,21 @@
                                     </li>
                                 @else
                                     @if ($question->status == 1)
-                                        @php $status = 'Есть ответ'; @endphp
+                                        @php $status = 'Есть ответ'; $action = 'Скрыть'; $visibility = 'hidden-image'; @endphp
                                     @else
-                                        @php $status = 'Скрыт'; @endphp
+                                        @php $status = 'Скрыт'; $action = 'Показать'; $visibility = 'visible-image'; @endphp
                                     @endif
                                     <li>
-                                        <a class="cd-faq-trigger" href="#0">{{ $question->text }}</a>
+                                        <a class="cd-faq-trigger" href="#0"><img src="/diplom/diplom/img/hide.png" width="18" height="18" class="{{$visibility}}"> {{ $question->text }}</a>
                                         <div class="cd-faq-content">
-                                            <p>Дата создания: {{$question->date}}</p>
-                                            <p>Статус: {{$status}}</p>
+                                            <p> Дата создания: {{$question->date}}</p>
+                                            <p> Статус: {{$status}}</p>
+                                            <form role="form" method="POST" action="HideQuestion">
+                                                {{ csrf_field() }}
+                                                <input type="hidden" name="hidden_id" value="{{$question->id}}">
+                                                <input type="hidden" name="hidden_status" value="{{$question->status}}">
+                                                <input type="submit" value="{{$action}}" class="visibility-answer">
+                                            </form>
                                             <hr/>
                                             <form role="form" method="POST" action="ShowEditForm">
                                                 {{ csrf_field() }}

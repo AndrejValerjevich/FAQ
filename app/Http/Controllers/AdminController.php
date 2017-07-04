@@ -29,7 +29,7 @@ class AdminController extends Controller
         $themes = Theme::all()->sortBy("name");
         $questions = Question::all()->sortBy("status");
 
-        return view('admin', ['themes' => $themes], ['questions' => $questions]);
+        return view('admin', compact('questions', 'themes'));
     }
 
     public function Answer(Request $request) {
@@ -38,9 +38,31 @@ class AdminController extends Controller
 
         $question->answer = $request->get('answer');
 
+        $question->status = 1;
+
         $question->save();
 
         return redirect('admin');
+    }
 
+    public function HideQuestion(Request $request)
+    {
+        if ($request->get('hidden_status') == 1) {
+            $status = 2;
+        }
+        elseif ($request->get('hidden_status') == 2) {
+            $status = 1;
+        }
+        else {
+            $status = 0;
+        }
+
+        $question = Question::find($request->get('hidden_id'));
+
+        $question->status = $status;
+
+        $question->save();
+
+        return redirect('admin');
     }
 }

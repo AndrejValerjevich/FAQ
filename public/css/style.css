@@ -494,7 +494,7 @@ header h1 {
 
 .faq-answer {
   border: none;
-  background: none;
+  background: #f3f3f5;
   color: #00b3ff;
   text-align: center;
   line-height: 50px;
@@ -570,3 +570,29 @@ h2.less-size {
   display: inline-block;
 }
 
+.hidden-image {
+  visibility: hidden;
+}
+.visible-image {
+  visibility: visible;
+}
+
+.visibility-answer {
+  border: none;
+  background: #f3f3f5;
+  color: #00b3ff;
+  text-align: center;
+  line-height: 30px;
+  margin: 1% auto;
+  font-size: 1.2em;
+  font-weight: 500;
+  width: 200px;
+  border-radius: 2px;
+  transition: 1s;
+}
+
+.visibility-answer:hover {
+  background-color: #00b3ff;
+  color: white;
+  opacity: 0.9;
+}
