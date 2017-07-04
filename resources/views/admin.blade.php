@@ -20,12 +20,12 @@
                             @if ($question->theme_id == $theme->id)
                                 @php $all_count++; @endphp
                                 @if ($question->status == 0)
-                                    @php $non_answered_count++; @endphp
+                                    @php $non_answered_count++; $status = 'Нет ответа'; @endphp
                                     <li>
                                         <a class="cd-faq-trigger" href="#0"><img src="/diplom/diplom/img/non-aswered.png" width="18" height="18">   {{ $question->text }}</a>
                                         <div class="cd-faq-content">
                                             <p>Дата создания: {{$question->date}}</p>
-                                            <p>Статус: {{$question->status}}</p>
+                                            <p>Статус: {{$status}}</p>
                                             <hr/>
                                             <form role="form" method="POST" action="admin/Answer">
                                                 {{ csrf_field() }}
@@ -52,13 +52,23 @@
                                         </div> <!— cd-faq-content —>
                                     </li>
                                 @else
+                                    @if ($question->status == 1)
+                                        @php $status = 'Есть ответ'; @endphp
+                                    @else
+                                        @php $status = 'Скрыт'; @endphp
+                                    @endif
                                     <li>
                                         <a class="cd-faq-trigger" href="#0">{{ $question->text }}</a>
                                         <div class="cd-faq-content">
                                             <p>Дата создания: {{$question->date}}</p>
-                                            <p>Статус: {{$question->status}}</p>
+                                            <p>Статус: {{$status}}</p>
                                             <hr/>
-                                            <p>{{ $question->answer }}</p>
+                                            <form role="form" method="POST" action="admin/Answer">
+                                                {{ csrf_field() }}
+                                                <input type="hidden" name="hidden_id" value="{{$question->id}}">
+                                                <p>{{ $question->answer }}</p>
+                                                <input type="submit" value="Редактировать" class="faq-answer">
+                                            </form>
                                         </div> <!— cd-faq-content —>
                                     </li>
                                 @endif

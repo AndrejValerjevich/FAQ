@@ -23,6 +23,8 @@ Route::get('ask', 'AskController@index');
 
 Route::get('users', 'UsersController@index');
 
+Route::get('edit', 'EditController@index');
+
 Route::post('changePassword', 'ChangePasswordController@index');
 
 Route::post('home/AddQuestion', [
