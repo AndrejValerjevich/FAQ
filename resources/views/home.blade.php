@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @if (!empty($themes))
+    @if (!empty($themes[0]))
         <section class="cd-faq">
             <ul class="cd-faq-categories">
                 @foreach ($themes as $theme)

@@ -58,7 +58,7 @@
         <header>
             @if (Auth::guest())
                 <h1>F &nbsp;&nbsp;&nbsp;&nbsp; A &nbsp;&nbsp;&nbsp;&nbsp; Q</h1>
-                @if (!empty($themes))
+                @if (!empty($themes[0]))
                     <a href="ask"><h3 class="faq-auth">Спросить</h3></a>
                 @endif
             @else

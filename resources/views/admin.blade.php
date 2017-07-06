@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+    @if (!empty($themes[0]))
     <section class="cd-faq">
         <ul class="cd-faq-categories">
             @foreach ($themes as $theme)
@@ -92,11 +92,12 @@
                     </ul>
                 @endforeach
             </form>
-
         </div> <!— cd-faq-items —>
-
-        <a href="#0" class="cd-close-panel">Close</a>
     </section> <!— cd-faq —>
+    @else
+        <h1 class="main-h1">Пока что нет ни одной темы:(</h1>
+        <a href="AddTheme"><h3 class="main-h4">Добавить тему</h3></a>
+    @endif
     <script src="/diplom/diplom/public/js/jquery-2.1.1.js"></script>
     <script src="/diplom/diplom/public/js/jquery.mobile.custom.min.js"></script>
     <script src="/diplom/diplom/public/js/main.js"></script> <!— Resource jQuery —>

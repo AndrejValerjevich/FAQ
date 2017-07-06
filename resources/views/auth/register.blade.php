@@ -63,11 +63,12 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="controller-button">
                                     Добавить администратора
                                 </button>
                             </div>
                         </div>
+                        <a href="admin" class="controller-button">Назад</a>
                     </form>
                 </div>
             </div>

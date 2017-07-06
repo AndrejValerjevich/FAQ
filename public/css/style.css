@@ -557,6 +557,7 @@ h2.less-size {
   width: 370px;
   border-radius: 2px;
   transition: 1s;
+  background: #f3f3f5;
 }
 
 .admin-button:hover {
@@ -613,8 +614,10 @@ h2.less-size {
 }
 
 .main-h4:hover {
-    color: black;
-    font-size: 1.8em;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.9em;
+    background-color: #00b3ff;
 }
 
 h3.add-theme {
@@ -643,4 +646,22 @@ h3.add-theme {
 .del-theme:hover {
     background-color: #00b3ff;
     color: white;
+}
+
+.controller-button {
+  background-color: #f3f3f5;
+  border: none;
+  border-radius: 2px;
+  color: #00b3ff;
+  line-height: 40px;
+  margin: auto;
+  padding: 0 20px;
+  font-size: 1.2em;
+  text-align: center;
+  transition: 1s;
+}
+
+.controller-button:hover {
+  background-color: #00b3ff;
+  color: white;
 }

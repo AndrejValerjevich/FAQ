@@ -17,7 +17,7 @@
                                     <input type="hidden" name="hidden_id" value="{{$user->email}}">
                                     <input type="submit" value="Изменить пароль" class="admin-button">
                                 </form>
-                                <form class="small-form" role="form" method="POST" action="users/Delete">
+                                <form class="small-form" role="form" method="POST" action="DeleteUser">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="hidden_id" value="{{$user->id}}">
                                     <input type="submit" value="Удалить" class="admin-button">

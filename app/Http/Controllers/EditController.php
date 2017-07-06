@@ -37,6 +37,12 @@ class EditController extends Controller
         $question->theme_id = $theme_id;
         $question->text = $request->get('text');
         $question->answer = $request->get('answer');
+        if ($request->get('answer') != '') {
+            $question->status = 1;
+        }
+        else {
+            $question->status = 0;
+        }
         $question->asking_user_name = $request->get('author');
 
         $question->save();

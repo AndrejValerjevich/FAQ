@@ -40,7 +40,7 @@
                                 <label for="answer" class="col-md-4 control-label">Изменить ответ на вопрос: </label>
 
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="answer" value="{{$edit_question->answer}}" required>
+                                    <input type="text" class="form-control" name="answer" value="{{$edit_question->answer}}">
                                 </div>
                             </div>
 
@@ -54,12 +54,12 @@
 
                             <div class="form-group">
                                 <div class="col-md-4 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        Сохранить изменения
+                                    <button type="submit" class="controller-button">
+                                        Сохранить
                                     </button>
                                 </div>
                             </div>
-                            <a href="admin" class="btn btn-primary">Назад</a>
+                            <a href="admin" class="controller-button">Назад</a>
                         </form>
                     </div>
                 </div>

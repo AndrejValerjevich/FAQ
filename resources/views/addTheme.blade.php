@@ -21,12 +21,12 @@
 
                             <div class="form-group">
                                 <div class="col-md-4 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="controller-button">
                                         Добавить тему
                                     </button>
                                 </div>
                             </div>
-                            <a href="admin" class="btn btn-primary">Назад</a>
+                            <a href="admin" class="controller-button">Назад</a>
                         </form>
                     </div>
                 </div>

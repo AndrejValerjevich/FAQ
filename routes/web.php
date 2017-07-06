@@ -15,32 +15,22 @@ Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
-Route::get('home', 'HomeController@index');
 
-Route::get('admin', 'AdminController@index');
+/*-----Маршрутизация на home-----*/
 
-Route::get('ask', 'AskController@index');
-
-Route::get('users', 'UsersController@index');
-
-Route::post('ShowEditForm', [
-    'as' => 'ShowEditForm', 'uses' => 'EditController@index'
+Route::get('home', [
+    'as' => 'home', 'uses' => 'HomeController@index'
 ]);
 
-Route::post('EditQuestion', [
-    'as' => 'EditQuestion', 'uses' => 'EditController@EditQuestion'
+Route::post('AddQuestion', [
+    'as' => 'AddQuestion', 'uses' => 'HomeController@AddQuestion'
 ]);
 
-Route::get('AddTheme', [
-    'as' => 'AddTheme', 'uses' => 'AddThemeController@index'
-]);
 
-Route::post('AddTheme', [
-    'as' => 'AddTheme', 'uses' => 'AddThemeController@AddTheme'
-]);
+/*-----Маршрутизация на admin-----*/
 
-Route::post('DeleteTheme', [
-    'as' => 'DeleteTheme', 'uses' => 'AdminController@DeleteTheme'
+Route::get('admin', [
+    'as' => 'admin', 'uses' => 'AdminController@index'
 ]);
 
 Route::post('HideQuestion', [
@@ -51,20 +41,55 @@ Route::post('DeleteQuestion', [
     'as' => 'DeleteQuestion', 'uses' => 'AdminController@DeleteQuestion'
 ]);
 
-Route::post('changePassword', 'ChangePasswordController@index');
-
-Route::post('home/AddQuestion', [
-    'as' => 'AddQuestion', 'uses' => 'HomeController@AddQuestion'
-]);
-
 Route::post('Answer', [
     'as' => 'Answer', 'uses' => 'AdminController@Answer'
 ]);
 
-Route::post('users/Delete', [
-    'as' => 'Delete', 'uses' => 'UsersController@Delete'
+Route::post('DeleteTheme', [
+    'as' => 'DeleteTheme', 'uses' => 'AdminController@DeleteTheme'
 ]);
 
-Route::post('users/ChangePassword', [
-    'as' => 'ChangePassword', 'uses' => 'UsersController@ChangePassword'
+
+/*-----Маршрутизация на ask-----*/
+
+Route::get('ask', [
+    'as' => 'ask', 'uses' => 'AskController@index'
 ]);
+
+
+/*-----Маршрутизация на users-----*/
+
+Route::get('users', [
+    'as' => 'users', 'uses' => 'UsersController@index'
+]);
+
+Route::post('DeleteUser', [
+    'as' => 'DeleteUser', 'uses' => 'UsersController@DeleteUser'
+]);
+
+
+/*-----Маршрутизация на edit-----*/
+
+Route::post('ShowEditForm', [
+    'as' => 'ShowEditForm', 'uses' => 'EditController@index'
+]);
+
+Route::post('EditQuestion', [
+    'as' => 'EditQuestion', 'uses' => 'EditController@EditQuestion'
+]);
+
+
+/*-----Маршрутизация на addTheme-----*/
+
+Route::get('AddTheme', [
+    'as' => 'AddTheme', 'uses' => 'AddThemeController@index'
+]);
+
+Route::post('AddTheme', [
+    'as' => 'AddTheme', 'uses' => 'AddThemeController@AddTheme'
+]);
+
+
+
+
+
