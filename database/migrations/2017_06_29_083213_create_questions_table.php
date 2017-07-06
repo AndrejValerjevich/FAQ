@@ -19,7 +19,10 @@ class CreateQuestionsTable extends Migration
             $table->text('text');
             $table->datetime('date');
             $table->text('answer')->nullable();
+            $table->text('asking_user_name');
+            $table->text('asking_user_email');
             $table->tinyInteger('status')->default(0);
+            $table->timestamps();
 
             $table->foreign('theme_id')
                 ->references('id')
