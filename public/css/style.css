@@ -596,3 +596,51 @@ h2.less-size {
   color: white;
   opacity: 0.9;
 }
+
+.main-h1 {
+    text-align: center;
+    line-height: 200px;
+    color: #00b3ff;
+    font-size: 3em;
+}
+
+.main-h4 {
+    text-align: center;
+    line-height: 130px;
+    color: #00b3ff;
+    font-size: 1.5em;
+    transition: 1s;
+}
+
+.main-h4:hover {
+    color: black;
+    font-size: 1.8em;
+}
+
+h3.add-theme {
+    border-radius: 2px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 1.4em;
+    transition: 1s;
+}
+
+.add-theme:hover {
+    color: white;
+    background-color: #00b3ff;
+}
+
+.del-theme {
+    border: none;
+    border-radius: 2px;
+    background: none;
+    color: #00b3ff;
+    text-align: center;
+    transition: 1s;
+    line-height: 15px;
+}
+
+.del-theme:hover {
+    background-color: #00b3ff;
+    color: white;
+}

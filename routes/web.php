@@ -27,8 +27,28 @@ Route::post('ShowEditForm', [
     'as' => 'ShowEditForm', 'uses' => 'EditController@index'
 ]);
 
+Route::post('EditQuestion', [
+    'as' => 'EditQuestion', 'uses' => 'EditController@EditQuestion'
+]);
+
+Route::get('AddTheme', [
+    'as' => 'AddTheme', 'uses' => 'AddThemeController@index'
+]);
+
+Route::post('AddTheme', [
+    'as' => 'AddTheme', 'uses' => 'AddThemeController@AddTheme'
+]);
+
+Route::post('DeleteTheme', [
+    'as' => 'DeleteTheme', 'uses' => 'AdminController@DeleteTheme'
+]);
+
 Route::post('HideQuestion', [
     'as' => 'HideQuestion', 'uses' => 'AdminController@HideQuestion'
+]);
+
+Route::post('DeleteQuestion', [
+    'as' => 'DeleteQuestion', 'uses' => 'AdminController@DeleteQuestion'
 ]);
 
 Route::post('changePassword', 'ChangePasswordController@index');

@@ -24,8 +24,7 @@ class UsersController extends Controller
 
     public function Delete(Request $request)
     {
-
-        DB::delete('delete from users where id = ?', [$request->get('hidden_id')]);
+        User::destroy($request->get('hidden_id'));
 
         return redirect('users');
     }

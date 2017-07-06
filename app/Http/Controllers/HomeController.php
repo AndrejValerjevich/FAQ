@@ -31,6 +31,8 @@ class HomeController extends Controller
         $question->date = date('Y-m-d H:i:s');
         $question->answer = '';
         $question->status = 0;
+        $question->asking_user_name = $request->get('name');
+        $question->asking_user_email = $request->get('email');
 
         $question->save();
 

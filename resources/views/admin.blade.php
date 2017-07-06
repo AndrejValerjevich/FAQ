@@ -9,13 +9,17 @@
             @endforeach
         </ul> <!— cd-faq-categories —>
 
-        <a href="register"><h3 class="add-button__new">Новая тема</h3></a>
-
         <div class="cd-faq-items">
+            <a href="AddTheme"><h3 class="add-theme">Добавить тему</h3></a>
                 @foreach ($themes as $theme)
                     @php $all_count = 0; $non_answered_count = 0; @endphp
                     <ul id="{{ $theme->name }}" class="cd-faq-group">
-                        <li class="cd-faq-title"><h2>{{ $theme->name }} </h2></li>
+                        <form role="form" method="POST" action="DeleteTheme">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="hidden_theme_id" value="{{$theme->id}}">
+                            <li class="cd-faq-title"><h2>{{ $theme->name }} &nbsp; <input type="submit" value="Удалить тему" class="del-theme"></h2></li>
+                        </form>
+
                         @foreach ($questions as $question)
                             @if ($question->theme_id == $theme->id)
                                 @php $all_count++; @endphp
@@ -24,6 +28,8 @@
                                     <li>
                                         <a class="cd-faq-trigger" href="#0"><img src="/diplom/diplom/img/non-aswered.png" width="18" height="18">   {{ $question->text }}</a>
                                         <div class="cd-faq-content">
+                                            <p> Автор вопроса: {{$question->asking_user_name}}</p>
+                                            <p> Электронный адрес: {{$question->asking_user_email}}</p>
                                             <p> Дата создания: {{$question->date}}</p>
                                             <p> Статус: {{$status}}</p>
                                             <hr/>
@@ -39,12 +45,12 @@
                                                 <input type="submit" value="Ответить" class="faq-answer">
                                             </form>
                                             <hr/>
-                                            <form class="small-form" role="form" method="GET" action="reset">
+                                            <form class="small-form" role="form" method="POST" action="ShowEditForm">
                                                 {{ csrf_field() }}
                                                 <input type="hidden" name="hidden_id" value="{{$question->id}}">
                                                 <input type="submit" value="Изменить " class="admin-button">
                                             </form>
-                                            <form class="small-form" role="form" method="POST" action="users/Delete">
+                                            <form class="small-form" role="form" method="POST" action="DeleteQuestion">
                                                 {{ csrf_field() }}
                                                 <input type="hidden" name="hidden_id" value="{{$question->id}}">
                                                 <input type="submit" value="Удалить" class="admin-button">
@@ -60,6 +66,8 @@
                                     <li>
                                         <a class="cd-faq-trigger" href="#0"><img src="/diplom/diplom/img/hide.png" width="18" height="18" class="{{$visibility}}"> {{ $question->text }}</a>
                                         <div class="cd-faq-content">
+                                            <p> Автор вопроса: {{$question->asking_user_name}}</p>
+                                            <p> Электронный адрес: {{$question->asking_user_email}}</p>
                                             <p> Дата создания: {{$question->date}}</p>
                                             <p> Статус: {{$status}}</p>
                                             <form role="form" method="POST" action="HideQuestion">

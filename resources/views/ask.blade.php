@@ -12,7 +12,7 @@
                             {{ csrf_field() }}
 
                             <div class="form-group">
-                                <label for="password" class="col-md-4 control-label">Ваше имя</label>
+                                <label for="name" class="col-md-4 control-label">Ваше имя</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control" name="name" required autofocus>
@@ -34,7 +34,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="password" class="col-md-4 control-label">Выберите категорию</label>
+                                <label for="category" class="col-md-4 control-label">Выберите категорию</label>
 
                                 <div class="col-md-6">
                                     <select class="form-control" name="category">
@@ -46,7 +46,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="password" class="col-md-4 control-label">Ваш вопрос</label>
+                                <label for="question" class="col-md-4 control-label">Ваш вопрос</label>
 
                                 <div class="col-md-6">
                                     <input id="question" type="text" class="form-control" name="question" required>

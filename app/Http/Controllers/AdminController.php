@@ -65,4 +65,18 @@ class AdminController extends Controller
 
         return redirect('admin');
     }
+
+    public function DeleteTheme(Request $request)
+    {
+        Theme::destroy($request->get('hidden_theme_id'));
+
+        return redirect('admin');
+    }
+
+    public function DeleteQuestion(Request $request)
+    {
+        Question::destroy($request->get('hidden_id'));
+
+        return redirect('admin');
+    }
 }
