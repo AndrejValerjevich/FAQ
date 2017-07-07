@@ -77,11 +77,17 @@
                                                 <input type="submit" value="{{$action}}" class="visibility-answer">
                                             </form>
                                             <hr/>
-                                            <form role="form" method="POST" action="ShowEditForm">
+                                            <p>{{ $question->answer }}</p>
+                                            <hr/>
+                                            <form class="small-form" role="form" method="POST" action="ShowEditForm">
                                                 {{ csrf_field() }}
                                                 <input type="hidden" name="hidden_id" value="{{$question->id}}">
-                                                <p>{{ $question->answer }}</p>
-                                                <input type="submit" value="Редактировать" class="faq-answer">
+                                                <input type="submit" value="Редактировать " class="admin-button">
+                                            </form>
+                                            <form class="small-form" role="form" method="POST" action="DeleteQuestion">
+                                                {{ csrf_field() }}
+                                                <input type="hidden" name="hidden_id" value="{{$question->id}}">
+                                                <input type="submit" value="Удалить" class="admin-button">
                                             </form>
                                         </div> <!— cd-faq-content —>
                                     </li>
