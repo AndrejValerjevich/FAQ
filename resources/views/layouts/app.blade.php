@@ -19,9 +19,9 @@
             <div class="container">
                 <ul class="nav navbar-nav navbar-left">
                     @if (Auth::guest())
-                        <li><a href="home">Главная</a></li>
+                        <li><a href="{{ route('home') }}">Главная</a></li>
                     @else
-                        <li><a href="admin">Главная</a></li>
+                        <li><a href="{{ route('admin') }}">Главная</a></li>
                     @endif
                 </ul>
                     <!-- Right Side Of Navbar -->
@@ -59,7 +59,7 @@
             @if (Auth::guest())
                 <h1>F &nbsp;&nbsp;&nbsp;&nbsp; A &nbsp;&nbsp;&nbsp;&nbsp; Q</h1>
                 @if (!empty($themes[0]))
-                    <a href="ask"><h3 class="faq-auth">Спросить</h3></a>
+                    <a href="{{ route('question.create') }}"><h3 class="faq-auth">Спросить</h3></a>
                 @endif
             @else
                 <h1 class="less-size">F &nbsp;&nbsp;&nbsp;&nbsp; A &nbsp;&nbsp;&nbsp;&nbsp; Q</h1>

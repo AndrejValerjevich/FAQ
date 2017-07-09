@@ -8,7 +8,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Новый вопрос</div>
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="AddQuestion">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ route('question.store') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group">

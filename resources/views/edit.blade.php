@@ -6,17 +6,16 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Изменить вопрос: {{$edit_question->text}}</div>
+                    <div class="panel-heading">Изменить вопрос: {{$question->text}}</div>
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="EditQuestion">
-                            {{ csrf_field() }}
+                        <form class="form-horizontal" role="form" action="{{ route('question.update', [$question]) }}">
+                            {{ method_field('PATCH') }}
 
-                            <input type="hidden" name="hidden_id" value="{{$edit_question->id}}">
                             <div class="form-group">
                                 <label for="text" class="col-md-4 control-label">Изменить текст вопроса: </label>
 
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="text" value="{{$edit_question->text}}" required>
+                                    <input type="text" class="form-control" name="text" value="{{$question->text}}" required>
                                 </div>
                             </div>
 
@@ -26,7 +25,7 @@
                                 <div class="col-md-6">
                                     <select class="form-control" name="category">
                                         @foreach($themes as $theme)
-                                            @if ($edit_question->theme_id == $theme->id)
+                                            @if ($question->theme_id == $theme->id)
                                                 <option selected>{{ $theme->name }}</option>
                                             @else
                                                 <option>{{ $theme->name }}</option>
@@ -40,7 +39,7 @@
                                 <label for="answer" class="col-md-4 control-label">Изменить ответ на вопрос: </label>
 
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="answer" value="{{$edit_question->answer}}">
+                                    <input type="text" class="form-control" name="answer" value="{{$question->answer}}">
                                 </div>
                             </div>
 
@@ -48,7 +47,7 @@
                                 <label for="author" class="col-md-4 control-label">Изменить имя автора: </label>
 
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="author" value="{{$edit_question->asking_user_name}}" required>
+                                    <input type="text" class="form-control" name="author" value="{{$question->asking_user_name}}" required>
                                 </div>
                             </div>
 
@@ -59,7 +58,7 @@
                                     </button>
                                 </div>
                             </div>
-                            <a href="admin" class="controller-button">Назад</a>
+                            <a href="{{ route('admin') }}" class="controller-button">Назад</a>
                         </form>
                     </div>
                 </div>

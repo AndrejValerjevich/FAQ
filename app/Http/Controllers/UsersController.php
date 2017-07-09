@@ -29,7 +29,6 @@ class UsersController extends Controller
         $id = $request->get('hidden_id');
         if (Auth::id() != $id) {
             User::destroy($id);
-            $warn = '';
         }
 
         return redirect(route('users'));

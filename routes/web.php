@@ -15,6 +15,12 @@ Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
+Route::resource('question', 'QuestionController', ['parametrs' => [
+    'id' => 'hidden_id'
+]]);
+
+Route::resource('theme', 'ThemeController');
+
 
 /*-----Маршрутизация на home-----*/
 

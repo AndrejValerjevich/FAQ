@@ -10,13 +10,12 @@
         </ul> <!— cd-faq-categories —>
 
         <div class="cd-faq-items">
-            <a href="AddTheme"><h3 class="add-theme">Добавить тему</h3></a>
+            <a href="{{ route('theme.create') }}"><h3 class="add-theme">Добавить тему</h3></a>
                 @foreach ($themes as $theme)
                     @php $all_count = 0; $non_answered_count = 0; @endphp
                     <ul id="{{ $theme->name }}" class="cd-faq-group">
-                        <form role="form" method="POST" action="DeleteTheme">
-                            {{ csrf_field() }}
-                            <input type="hidden" name="hidden_theme_id" value="{{$theme->id}}">
+                        <form role="form" action="{{ route('theme.destroy', [$theme]) }}">
+                            {{ method_field('DELETE') }}
                             <li class="cd-faq-title"><h2>{{ $theme->name }} &nbsp; <input type="submit" value="Удалить тему" class="del-theme"></h2></li>
                         </form>
 
@@ -45,9 +44,8 @@
                                                 <input type="submit" value="Ответить" class="faq-answer">
                                             </form>
                                             <hr/>
-                                            <form class="small-form" role="form" method="POST" action="ShowEditForm">
-                                                {{ csrf_field() }}
-                                                <input type="hidden" name="hidden_id" value="{{$question->id}}">
+                                            <form class="small-form" role="form" method="GET" action="{{ route('question.show', [$question->id]) }}">
+
                                                 <input type="submit" value="Изменить " class="admin-button">
                                             </form>
                                             <form class="small-form" role="form" method="POST" action="DeleteQuestion">
@@ -79,9 +77,8 @@
                                             <hr/>
                                             <p>{{ $question->answer }}</p>
                                             <hr/>
-                                            <form class="small-form" role="form" method="POST" action="ShowEditForm">
-                                                {{ csrf_field() }}
-                                                <input type="hidden" name="hidden_id" value="{{$question->id}}">
+                                            <form class="small-form" role="form" method="GET" action="{{ route('question.show', [$question->id]) }}">
+
                                                 <input type="submit" value="Редактировать " class="admin-button">
                                             </form>
                                             <form class="small-form" role="form" method="POST" action="DeleteQuestion">
@@ -96,6 +93,7 @@
                         @endforeach
                         <li class="cd-faq-title"><h2>Всего вопросов в теме: @php echo $all_count.', ожидают ответа: '.$non_answered_count; @endphp </h2></li>
                     </ul>
+            <hr/>
                 @endforeach
             </form>
         </div> <!— cd-faq-items —>

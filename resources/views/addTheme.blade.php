@@ -8,7 +8,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Добавить новую тему</div>
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="AddTheme">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ route('theme.store') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group">
@@ -26,7 +26,7 @@
                                     </button>
                                 </div>
                             </div>
-                            <a href="admin" class="controller-button">Назад</a>
+                            <a href="{{ route('admin') }}" class="controller-button">Назад</a>
                         </form>
                     </div>
                 </div>
