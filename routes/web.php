@@ -19,11 +19,11 @@ Route::resource('question', 'QuestionController');
 
 Route::resource('theme', 'ThemeController');
 
-Route::put('question.answer', [
+Route::put('question.answer/{question}', [
     'as' => 'question.answer', 'uses' => 'QuestionController@answer'
 ]);
 
-Route::put('question.hide', [
+Route::put('question.hide/{question}', [
     'as' => 'question.hide', 'uses' => 'QuestionController@hide'
 ]);
 

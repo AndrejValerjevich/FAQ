@@ -12,9 +12,8 @@
                             <div class="cd-faq-content">
                                 <p>{{ $user->email }}</p>
                                 <hr/>
-                                <form class="small-form" role="form" method="GET" action="{{ route('password.reset', $user) }}">
+                                <form class="small-form" role="form" method="GET" action="{{ route('password.reset', $user->id) }}">
                                     {{ csrf_field() }}
-                                    <input type="hidden" name="hidden_id" value="{{$user->email}}">
                                     <input type="submit" value="Изменить пароль" class="admin-button">
                                 </form>
                                 <form class="small-form" role="form" method="POST" action="{{ route('user.destroy') }}">

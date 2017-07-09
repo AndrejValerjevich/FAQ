@@ -79,7 +79,6 @@
                                             <p>{{ $question->answer }}</p>
                                             <hr/>
                                             <form class="small-form" role="form" method="GET" action="{{ route('question.show', $question) }}">
-
                                                 <input type="submit" value="Редактировать " class="admin-button">
                                             </form>
                                             <form class="small-form" role="form" method="POST" action="{{ route('question.destroy', $question) }}">

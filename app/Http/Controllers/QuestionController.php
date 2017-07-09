@@ -138,7 +138,8 @@ class QuestionController extends Controller
     public function hide(Request $request, Question $question)
     {
         $requestStatus = $request->get('hidden_status');
-        $status = ($requestStatus == 1 || $requestStatus == 2) ? $requestStatus : 0;
+
+        $status = ($requestStatus == 1) ? 2 : (($requestStatus == 2) ? 1 : 0);
 
         $question->update(['status' => $status]);
 
