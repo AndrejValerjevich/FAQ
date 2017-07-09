@@ -27,6 +27,14 @@ Route::put('question.hide/{question}', [
     'as' => 'question.hide', 'uses' => 'QuestionController@hide'
 ]);
 
+Route::post('password.reset', [
+    'as' => 'password.reset', 'uses' => 'Auth\ResetPasswordController@showResetForm'
+]);
+
+Route::post('password.request', [
+    'as' => 'password.request', 'uses' => 'Auth\ResetPasswordController@reset'
+]);
+
 
 /*-----Маршрутизация на home-----*/
 
