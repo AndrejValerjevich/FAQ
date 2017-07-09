@@ -14,8 +14,9 @@
                 @foreach ($themes as $theme)
                     @php $all_count = 0; $non_answered_count = 0; @endphp
                     <ul id="{{ $theme->name }}" class="cd-faq-group">
-                        <form role="form" action="{{ route('theme.destroy', [$theme]) }}">
+                        <form role="form" method="POST" action="{{ route('theme.destroy', $theme) }}">
                             {{ method_field('DELETE') }}
+                            {{ csrf_field() }}
                             <li class="cd-faq-title"><h2>{{ $theme->name }} &nbsp; <input type="submit" value="Удалить тему" class="del-theme"></h2></li>
                         </form>
 
@@ -32,7 +33,8 @@
                                             <p> Дата создания: {{$question->date}}</p>
                                             <p> Статус: {{$status}}</p>
                                             <hr/>
-                                            <form role="form" method="POST" action="Answer">
+                                            <form role="form" method="POST" action="{{ route('question.answer', $question) }}">
+                                                {{ method_field('PUT') }}
                                                 {{ csrf_field() }}
                                                 <div class="form-group">
                                                     <label for="answer" class="col-md-4 control-label">Напишите ответ на вопрос:</label>
@@ -40,17 +42,16 @@
                                                         <input id="question" type="text" class="form-control" name="answer">
                                                     </div>
                                                 </div>
-                                                <input type="hidden" name="hidden_id" value="{{$question->id}}">
                                                 <input type="submit" value="Ответить" class="faq-answer">
                                             </form>
                                             <hr/>
-                                            <form class="small-form" role="form" method="GET" action="{{ route('question.show', [$question->id]) }}">
+                                            <form class="small-form" role="form" method="GET" action="{{ route('question.show', $question) }}">
 
                                                 <input type="submit" value="Изменить " class="admin-button">
                                             </form>
-                                            <form class="small-form" role="form" method="POST" action="DeleteQuestion">
+                                            <form class="small-form" role="form" method="POST" action="{{ route('question.destroy', $question) }}">
+                                                {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <input type="hidden" name="hidden_id" value="{{$question->id}}">
                                                 <input type="submit" value="Удалить" class="admin-button">
                                             </form>
                                         </div> <!— cd-faq-content —>
@@ -68,22 +69,22 @@
                                             <p> Электронный адрес: {{$question->asking_user_email}}</p>
                                             <p> Дата создания: {{$question->date}}</p>
                                             <p> Статус: {{$status}}</p>
-                                            <form role="form" method="POST" action="HideQuestion">
+                                            <form role="form" method="POST" action="{{ route('question.hide', $question) }}">
+                                                {{ method_field('PUT') }}
                                                 {{ csrf_field() }}
-                                                <input type="hidden" name="hidden_id" value="{{$question->id}}">
                                                 <input type="hidden" name="hidden_status" value="{{$question->status}}">
                                                 <input type="submit" value="{{$action}}" class="visibility-answer">
                                             </form>
                                             <hr/>
                                             <p>{{ $question->answer }}</p>
                                             <hr/>
-                                            <form class="small-form" role="form" method="GET" action="{{ route('question.show', [$question->id]) }}">
+                                            <form class="small-form" role="form" method="GET" action="{{ route('question.show', $question) }}">
 
                                                 <input type="submit" value="Редактировать " class="admin-button">
                                             </form>
-                                            <form class="small-form" role="form" method="POST" action="DeleteQuestion">
+                                            <form class="small-form" role="form" method="POST" action="{{ route('question.destroy', $question) }}">
+                                                {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <input type="hidden" name="hidden_id" value="{{$question->id}}">
                                                 <input type="submit" value="Удалить" class="admin-button">
                                             </form>
                                         </div> <!— cd-faq-content —>

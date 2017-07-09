@@ -123,6 +123,32 @@ class QuestionController extends Controller
      */
     public function destroy(Question $question)
     {
-        //
+        $question->delete();
+
+        return redirect('admin');
+    }
+
+    public function answer(Request $request, Question $question)
+    {
+        $question->update(['answer' => $request->get('answer'), 'status' => 1]);
+
+        return redirect('admin');
+    }
+
+    public function hide(Request $request, Question $question)
+    {
+        if ($request->get('hidden_status') == 1) {
+            $status = 2;
+        }
+        elseif ($request->get('hidden_status') == 2) {
+            $status = 1;
+        }
+        else {
+            $status = 0;
+        }
+
+        $question->update(['status' => $status]);
+        
+        return redirect('admin');
     }
 }

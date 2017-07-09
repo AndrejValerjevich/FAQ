@@ -8,9 +8,9 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Изменить вопрос: {{$question->text}}</div>
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form" action="{{ route('question.update', [$question]) }}">
-                            {{ method_field('PATCH') }}
-
+                        <form class="form-horizontal" role="form" method="POST" action="{{ route('question.update', $question) }}">
+                            {{ method_field('PUT') }}
+                            {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="text" class="col-md-4 control-label">Изменить текст вопроса: </label>
 

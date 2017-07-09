@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class ThemeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -86,7 +91,7 @@ class ThemeController extends Controller
      */
     public function destroy(Theme $theme)
     {
-        Theme::destroy($theme->id);
+        $theme->delete();
 
         return redirect('admin');
     }
