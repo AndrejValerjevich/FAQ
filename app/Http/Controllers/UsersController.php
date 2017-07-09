@@ -28,7 +28,7 @@ class UsersController extends Controller
         return view('users', compact('users'));
     }
 
-    public function DeleteUser(Request $request)
+    public function destroy(Request $request)
     {
         $id = $request->get('hidden_id');
         if (Auth::id() != $id) {

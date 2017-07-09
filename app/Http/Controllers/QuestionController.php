@@ -141,7 +141,7 @@ class QuestionController extends Controller
         $status = ($requestStatus == 1 || $requestStatus == 2) ? $requestStatus : 0;
 
         $question->update(['status' => $status]);
-        
+
         return redirect('admin');
     }
 }

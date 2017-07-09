@@ -64,7 +64,7 @@
             @else
                 <h1 class="less-size">F &nbsp;&nbsp;&nbsp;&nbsp; A &nbsp;&nbsp;&nbsp;&nbsp; Q</h1>
                 <h2 class="less-size">a d m i n i s t r a t e</h2>
-                <a href="users"><h3 class="faq-admins">Администраторы</h3></a>
+                <a href="{{ route('users') }}"><h3 class="faq-admins">Администраторы</h3></a>
             @endif
         </header>
         @yield('content')

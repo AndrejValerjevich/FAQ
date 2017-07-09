@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="cd-faq">
-        <a href="register"><h3 class="add-button__new">Новый администратор</h3></a>
+        <a href="{{ route('register') }}"><h3 class="add-button__new">Новый администратор</h3></a>
             <div class="cd-faq-items">
                 @foreach ($users as $user)
                     <ul class="cd-faq-group">
@@ -12,12 +12,12 @@
                             <div class="cd-faq-content">
                                 <p>{{ $user->email }}</p>
                                 <hr/>
-                                <form class="small-form" role="form" method="GET" action="/">
+                                <form class="small-form" role="form" method="GET" action="{{ route('password.reset', $user) }}">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="hidden_id" value="{{$user->email}}">
                                     <input type="submit" value="Изменить пароль" class="admin-button">
                                 </form>
-                                <form class="small-form" role="form" method="POST" action="DeleteUser">
+                                <form class="small-form" role="form" method="POST" action="{{ route('user.destroy') }}">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="hidden_id" value="{{$user->id}}">
                                     <input type="submit" value="Удалить" class="admin-button">

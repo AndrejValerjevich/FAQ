@@ -48,8 +48,8 @@ Route::get('users', [
     'as' => 'users', 'uses' => 'UsersController@index'
 ]);
 
-Route::post('DeleteUser', [
-    'as' => 'DeleteUser', 'uses' => 'UsersController@DeleteUser'
+Route::post('user.destroy', [
+    'as' => 'user.destroy', 'uses' => 'UsersController@destroy'
 ]);
 
 
