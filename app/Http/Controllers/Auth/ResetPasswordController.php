@@ -2,6 +2,7 @@
 
 namespace FAQ\Http\Controllers\Auth;
 
+use FAQ\User;
 use FAQ\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 

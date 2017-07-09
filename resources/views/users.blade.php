@@ -14,7 +14,8 @@
                                 <hr/>
                                 <form class="small-form" role="form" method="POST" action="{{ route('password.reset') }}">
                                     {{ csrf_field() }}
-                                    <input type="hidden" name="hidden_id" value="{{$user->id}}">
+                                    <input type="hidden" name="name" value="{{$user->name}}">
+                                    <input type="hidden" name="id" value="{{$user->id}}">
                                     <input type="hidden" name="email" value="{{$user->email}}">
                                     <input type="submit" value="Изменить пароль" class="admin-button">
                                 </form>

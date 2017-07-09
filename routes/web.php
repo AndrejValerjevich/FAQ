@@ -32,7 +32,7 @@ Route::post('password.reset', [
 ]);
 
 Route::post('password.request', [
-    'as' => 'password.request', 'uses' => 'Auth\ResetPasswordController@reset'
+    'as' => 'password.request', 'uses' => 'Auth\ResetPasswordController@resetPassword'
 ]);
 
 
