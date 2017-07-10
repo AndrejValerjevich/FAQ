@@ -15,6 +15,14 @@ Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
+/*-----Маршрутизация на home-----*/
+
+Route::get('home', [
+    'as' => 'home', 'uses' => 'HomeController@index'
+]);
+
+/*-----Маршрутизация на ресурс-контроллеры-----*/
+
 Route::resource('question', 'QuestionController', ['except' => [
     'index', 'edit'
 ]]);
@@ -23,47 +31,43 @@ Route::resource('theme', 'ThemeController', ['only' => [
     'create', 'store', 'destroy'
 ]]);
 
-Route::post('question.answer/{question}', [
-    'as' => 'question.answer', 'uses' => 'QuestionController@answer'
-])->middleware('auth');
+/*-----Маршрутизация только для авторизованного пользователя-----*/
 
-Route::post('question.hide/{question}', [
-    'as' => 'question.hide', 'uses' => 'QuestionController@hide'
-])->middleware('auth');
+Route::group(['middleware' => 'auth'], function () {
+    Route::post('question/answer/{question}', [
+        'as' => 'question.answer', 'uses' => 'QuestionController@answer'
+    ]);
 
-Route::post('password.reset', [
-    'as' => 'password.reset', 'uses' => 'Auth\ResetPasswordController@showResetForm'
-]);
+    Route::post('question/hide/{question}', [
+        'as' => 'question.hide', 'uses' => 'QuestionController@hide'
+    ]);
 
-Route::post('password.request', [
-    'as' => 'password.request', 'uses' => 'Auth\ResetPasswordController@resetPassword'
-]);
+    /*-----Маршрутизация на admin-----*/
 
+    Route::get('admin', [
+        'as' => 'admin', 'uses' => 'AdminController@index'
+    ]);
 
-/*-----Маршрутизация на home-----*/
+    /*-----Маршрутизация на users-----*/
 
-Route::get('home', [
-    'as' => 'home', 'uses' => 'HomeController@index'
-])->middleware('guest');
+    Route::get('users', [
+        'as' => 'users', 'uses' => 'UsersController@index'
+    ]);
 
+    Route::post('user.destroy', [
+        'as' => 'user.destroy', 'uses' => 'UsersController@destroy'
+    ]);
 
-/*-----Маршрутизация на admin-----*/
+    /*-----Маршрутизация на восстановление пароля-----*/
 
-Route::get('admin', [
-    'as' => 'admin', 'uses' => 'AdminController@index'
-])->middleware('auth');
+    Route::post('password/reset', [
+        'as' => 'password.reset', 'uses' => 'Auth\ResetPasswordController@showResetForm'
+    ]);
 
-
-/*-----Маршрутизация на users-----*/
-
-Route::get('users', [
-    'as' => 'users', 'uses' => 'UsersController@index'
-])->middleware('auth');
-
-Route::post('user.destroy', [
-    'as' => 'user.destroy', 'uses' => 'UsersController@destroy'
-])->middleware('auth');
-
+    Route::post('password/request', [
+        'as' => 'password.request', 'uses' => 'Auth\ResetPasswordController@resetPassword'
+    ]);
+});
 
 
 
