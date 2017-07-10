@@ -27,8 +27,6 @@
                     </ul>
                 @endforeach
             </div> <!— cd-faq-items —>
-
-            <a href="#0" class="cd-close-panel">Close</a>
         </section> <!— cd-faq —>
     @else
         <h1 class="main-h1">Задать вопрос пока невозможно!</h1>

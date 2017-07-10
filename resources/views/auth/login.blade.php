@@ -57,7 +57,7 @@
 
                             </div>
                         </div>
-                        <a href="home" class="controller-button">Назад</a>
+                        <a href="{{ route('home') }}" class="controller-button">Назад</a>
                     </form>
                 </div>
             </div>

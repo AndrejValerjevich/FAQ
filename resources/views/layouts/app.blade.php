@@ -28,7 +28,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="home">О нас</a></li>
+                            <li><a href="{{ route('home') }}">О нас</a></li>
                             <li><a href="{{ route('login') }}">Вход</a></li>
                         @else
                             <li class="dropdown">

@@ -95,12 +95,11 @@
                     </ul>
             <hr/>
                 @endforeach
-            </form>
         </div> <!— cd-faq-items —>
     </section> <!— cd-faq —>
     @else
         <h1 class="main-h1">Пока что нет ни одной темы:(</h1>
-        <a href="AddTheme"><h3 class="main-h4">Добавить тему</h3></a>
+        <a href="{{ route('theme.create') }}"><h3 class="main-h4">Добавить тему</h3></a>
     @endif
     <script src="/diplom/diplom/public/js/jquery-2.1.1.js"></script>
     <script src="/diplom/diplom/public/js/jquery.mobile.custom.min.js"></script>

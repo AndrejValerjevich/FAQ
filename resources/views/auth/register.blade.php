@@ -68,7 +68,7 @@
                                 </button>
                             </div>
                         </div>
-                        <a href="admin" class="controller-button">Назад</a>
+                        <a href="{{ route('users') }}" class="controller-button">Назад</a>
                     </form>
                 </div>
             </div>

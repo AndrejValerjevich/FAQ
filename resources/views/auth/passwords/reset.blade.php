@@ -61,11 +61,12 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Reset Password
+                                <button type="submit" class="controller-button">
+                                    Изменить пароль
                                 </button>
                             </div>
                         </div>
+                        <a href="{{ route('users') }}" class="controller-button">Назад</a>
                     </form>
                 </div>
             </div>

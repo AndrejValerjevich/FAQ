@@ -56,13 +56,13 @@
 
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="controller-button">
                                         Задать вопрос
                                     </button>
                                 </div>
                             </div>
                         </form>
-                        <a href="home"><h3 class="btn btn-primary">Назад</h3></a>
+                        <a href="{{ route('home') }}" class="controller-button">Назад</a>
                     </div>
                 </div>
             </div>
