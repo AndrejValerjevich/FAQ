@@ -32,7 +32,4 @@
         <h1 class="main-h1">Задать вопрос пока невозможно!</h1>
         <a href="{{ route('login') }}"><h4 class="main-h4">Войдите в кабинет администратора</h4></a>
     @endif
-<script src="/diplom/diplom/public/js/jquery-2.1.1.js"></script>
-<script src="/diplom/diplom/public/js/jquery.mobile.custom.min.js"></script>
-<script src="/diplom/diplom/public/js/main.js"></script> <!— Resource jQuery —>
 @endsection

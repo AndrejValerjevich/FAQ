@@ -26,7 +26,7 @@
                                 @if ($question->status == 0)
                                     @php $non_answered_count++; $status = 'Нет ответа'; @endphp
                                     <li>
-                                        <a class="cd-faq-trigger" href="#0"><img src="/diplom/diplom/img/non-aswered.png" width="18" height="18">   {{ $question->text }}</a>
+                                        <a class="cd-faq-trigger" href="#0"><img src="{{ asset('img/non-aswered.png') }}" width="18" height="18">   {{ $question->text }}</a>
                                         <div class="cd-faq-content">
                                             <p> Автор вопроса: {{$question->asking_user_name}}</p>
                                             <p> Электронный адрес: {{$question->asking_user_email}}</p>
@@ -34,7 +34,6 @@
                                             <p> Статус: {{$status}}</p>
                                             <hr/>
                                             <form role="form" method="POST" action="{{ route('question.answer', $question) }}">
-                                                {{ method_field('PUT') }}
                                                 {{ csrf_field() }}
                                                 <div class="form-group">
                                                     <label for="answer" class="col-md-4 control-label">Напишите ответ на вопрос:</label>
@@ -63,14 +62,13 @@
                                         @php $status = 'Скрыт'; $action = 'Показать'; $visibility = 'visible-image'; @endphp
                                     @endif
                                     <li>
-                                        <a class="cd-faq-trigger" href="#0"><img src="/diplom/diplom/img/hide.png" width="18" height="18" class="{{$visibility}}"> {{ $question->text }}</a>
+                                        <a class="cd-faq-trigger" href="#0"><img src="{{ asset('img/hide.png') }}" width="18" height="18" class="{{$visibility}}"> {{ $question->text }}</a>
                                         <div class="cd-faq-content">
                                             <p> Автор вопроса: {{$question->asking_user_name}}</p>
                                             <p> Электронный адрес: {{$question->asking_user_email}}</p>
                                             <p> Дата создания: {{$question->date}}</p>
                                             <p> Статус: {{$status}}</p>
                                             <form role="form" method="POST" action="{{ route('question.hide', $question) }}">
-                                                {{ method_field('PUT') }}
                                                 {{ csrf_field() }}
                                                 <input type="hidden" name="hidden_status" value="{{$question->status}}">
                                                 <input type="submit" value="{{$action}}" class="visibility-answer">
@@ -101,8 +99,4 @@
         <h1 class="main-h1">Пока что нет ни одной темы:(</h1>
         <a href="{{ route('theme.create') }}"><h3 class="main-h4">Добавить тему</h3></a>
     @endif
-    <script src="/diplom/diplom/public/js/jquery-2.1.1.js"></script>
-    <script src="/diplom/diplom/public/js/jquery.mobile.custom.min.js"></script>
-    <script src="/diplom/diplom/public/js/main.js"></script> <!— Resource jQuery —>
-
 @endsection

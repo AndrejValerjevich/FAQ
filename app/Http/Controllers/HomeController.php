@@ -8,11 +8,6 @@ use Illuminate\HTTP\Request;
 
 class HomeController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
-
     public function index()
     {
         $themes = Theme::all()->sortBy("name");

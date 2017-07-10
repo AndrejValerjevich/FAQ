@@ -9,9 +9,9 @@
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" href="/diplom/diplom/public/css/reset.css"> <!— CSS reset —>
-    <link rel="stylesheet" href="/diplom/diplom/public/css/style.css"> <!— Resource style —>
-    <script src="/diplom/diplom/public/js/modernizr.js"></script> <!— Modernizr —>
+    <link rel="stylesheet" href="{{ asset('css/reset.css') }}"> <!— CSS reset —>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}"> <!— Resource style —>
+    <script src="{{ asset('js/modernizr.js') }}"></script> <!— Modernizr —>
     <title>FAQ</title>
 </head>
 <body>
@@ -70,5 +70,8 @@
         @yield('content')
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/jquery-2.1.1.js') }}"></script>
+        <script src="{{ asset('js/jquery.mobile.custom.min.js') }}"></script>
+        <script src="{{ asset('js/main.js') }}"></script> <!— Resource jQuery —>
 </body>
 </html>

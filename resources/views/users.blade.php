@@ -31,7 +31,4 @@
             </div> <!— cd-faq-items —>
 
     </section> <!— cd-faq —>
-    <script src="/diplom/diplom/public/js/jquery-2.1.1.js"></script>
-    <script src="/diplom/diplom/public/js/jquery.mobile.custom.min.js"></script>
-    <script src="/diplom/diplom/public/js/main.js"></script> <!— Resource jQuery —>
 @endsection
